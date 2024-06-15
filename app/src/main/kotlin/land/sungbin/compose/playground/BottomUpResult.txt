@@ -1,38 +1,36 @@
-TopDown Result
-
-[root] insertTopDown: parent at 0
 [parent] down: parent
-[parent] insertTopDown: child-1 at 0
 [child-1] down: child-1
 [parent] up
-[parent] insertTopDown: child-2 at 1
+[parent] insertBottomUp: child-1 at 0
 [child-2] down: child-2
 [parent] up
-[parent] insertTopDown: child-3 at 2
+[parent] insertBottomUp: child-2 at 1
 [child-3] down: child-3
 [parent] up
+[parent] insertBottomUp: child-3 at 2
 [root] up
-[root] insertTopDown: parent-2 at 1
+[root] insertBottomUp: parent at 0
 [parent-2] down: parent-2
-[parent-2] insertTopDown: child-2-1 at 0
 [child-2-1] down: child-2-1
 [parent-2] up
-[parent-2] insertTopDown: child-2-2 at 1
+[parent-2] insertBottomUp: child-2-1 at 0
 [child-2-2] down: child-2-2
 [parent-2] up
-[parent-2] insertTopDown: child-2-3 at 2
+[parent-2] insertBottomUp: child-2-2 at 1
 [child-2-3] down: child-2-3
 [parent-2] up
-[parent-2] insertTopDown: parent-3 (nested) at 3
+[parent-2] insertBottomUp: child-2-3 at 2
 [parent-3 (nested)] down: parent-3 (nested)
-[parent-3 (nested)] insertTopDown: child-3-1 (nested) at 0
 [child-3-1 (nested)] down: child-3-1 (nested)
 [parent-3 (nested)] up
-[parent-3 (nested)] insertTopDown: child-3-2 (nested) at 1
+[parent-3 (nested)] insertBottomUp: child-3-1 (nested) at 0
 [child-3-2 (nested)] down: child-3-2 (nested)
 [parent-3 (nested)] up
-[parent-3 (nested)] insertTopDown: child-3-3 (nested) at 2
+[parent-3 (nested)] insertBottomUp: child-3-2 (nested) at 1
 [child-3-3 (nested)] down: child-3-3 (nested)
 [parent-3 (nested)] up
+[parent-3 (nested)] insertBottomUp: child-3-3 (nested) at 2
 [parent-2] up
+[parent-2] insertBottomUp: parent-3 (nested) at 3
 [root] up
+[root] insertBottomUp: parent-2 at 1
