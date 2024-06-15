@@ -24,4 +24,5 @@ android {
 
 dependencies {
   implementation("androidx.compose.runtime:runtime:1.6.8")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0-RC")
 }
