@@ -2,24 +2,25 @@ package land.sungbin.compose.playground
 
 import androidx.compose.runtime.Applier
 
-class DebugApplier : Applier<String> {
-  private val stacks = mutableListOf("root")
+class DebugApplier : Applier<Ref<String>> {
+  private val stacks = mutableListOf(Ref<String>().apply { value = "root" })
   override val current get() = stacks.last()
 
   private inline fun debug(message: () -> String) {
-    println("[$current] ${message()}")
+    println("[${current.value}] ${message()}")
   }
 
-  override fun clear() {
-    debug { "clear" }
+  override fun insertTopDown(index: Int, instance: Ref<String>) {
+    debug { "insertTopDown: ${instance.value} at $index" }
   }
 
-  override fun move(from: Int, to: Int, count: Int) {
-    debug { "move: $from -> $to (count $count)" }
+  override fun down(node: Ref<String>) {
+    stacks += node
+    debug { "down: ${node.value}" }
   }
 
-  override fun remove(index: Int, count: Int) {
-    debug { "remove: $index (count $count)" }
+  override fun insertBottomUp(index: Int, instance: Ref<String>) {
+    debug { "insertBottomUp: ${instance.value} at $index" }
   }
 
   override fun up() {
@@ -27,16 +28,15 @@ class DebugApplier : Applier<String> {
     debug { "up" }
   }
 
-  override fun insertTopDown(index: Int, instance: String) {
-    debug { "insertTopDown: $instance at $index" }
+  override fun remove(index: Int, count: Int) {
+    debug { "remove: $index (count $count)" }
   }
 
-  override fun insertBottomUp(index: Int, instance: String) {
-    debug { "insertBottomUp: $instance at $index" }
+  override fun move(from: Int, to: Int, count: Int) {
+    debug { "move: $from -> $to (count $count)" }
   }
 
-  override fun down(node: String) {
-    stacks += node
-    debug { "down: $node" }
+  override fun clear() {
+    debug { "clear" }
   }
 }

@@ -7,11 +7,7 @@ import androidx.compose.runtime.Composition
 import androidx.compose.runtime.Recomposer
 import kotlinx.coroutines.Dispatchers
 
-private val DebugComposition =
-  Composition(
-    applier = DebugApplier(),
-    parent = Recomposer(Dispatchers.Default),
-  )
+private val DebugComposition = Composition(DebugApplier(), parent = Recomposer(Dispatchers.Default))
 
 @Suppress("UnusedReceiverParameter")
 fun Activity.setDebugContent(content: @Composable () -> Unit) {
@@ -20,17 +16,33 @@ fun Activity.setDebugContent(content: @Composable () -> Unit) {
 
 @Composable
 fun DebugNode(label: String) {
-  ComposeNode<String, DebugApplier>(
-    factory = { label },
-    update = {},
+  ComposeNode<Ref<String>, DebugApplier>(
+    factory = { Ref() },
+    update = {
+      init {
+        println("[$label] init")
+        value = label
+      }
+      reconcile {
+        println("[$label] reconcile")
+      }
+    },
   )
 }
 
 @Composable
 fun DebugNodeWithChildren(label: String, children: @Composable () -> Unit) {
-  ComposeNode<String, DebugApplier>(
-    factory = { label },
-    update = {},
+  ComposeNode<Ref<String>, DebugApplier>(
+    factory = { Ref() },
+    update = {
+      init {
+        println("[$label] init")
+        value = label
+      }
+      reconcile {
+        println("[$label] reconcile")
+      }
+    },
     content = children,
   )
 }
