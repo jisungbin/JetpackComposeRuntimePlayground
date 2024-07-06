@@ -1,60 +1,36 @@
-[root] insertTopDown: null at 0
-[null] down: null
-[parent] init
-[parent] reconcile
-[parent] insertTopDown: null at 0
-[null] down: null
-[child-1] init
-[child-1] reconcile
+[root] insertTopDown: parent at 0
+[parent] down: parent
+[parent] insertTopDown: child-1 at 0
+[child-1] down: child-1
 [parent] up
-[parent] insertTopDown: null at 1
-[null] down: null
-[child-2] init
-[child-2] reconcile
+[parent] insertTopDown: child-2 at 1
+[child-2] down: child-2
 [parent] up
-[parent] insertTopDown: null at 2
-[null] down: null
-[child-3] init
-[child-3] reconcile
+[parent] insertTopDown: child-3 at 2
+[child-3] down: child-3
 [parent] up
 [root] up
-[root] insertTopDown: null at 1
-[null] down: null
-[parent-2] init
-[parent-2] reconcile
-[parent-2] insertTopDown: null at 0
-[null] down: null
-[child-2-1] init
-[child-2-1] reconcile
+[root] insertTopDown: parent-2 at 1
+[parent-2] down: parent-2
+[parent-2] insertTopDown: child-2-1 at 0
+[child-2-1] down: child-2-1
 [parent-2] up
-[parent-2] insertTopDown: null at 1
-[null] down: null
-[child-2-2] init
-[child-2-2] reconcile
+[parent-2] insertTopDown: child-2-2 at 1
+[child-2-2] down: child-2-2
 [parent-2] up
-[parent-2] insertTopDown: null at 2
-[null] down: null
-[child-2-3] init
-[child-2-3] reconcile
+[parent-2] insertTopDown: child-2-3 at 2
+[child-2-3] down: child-2-3
 [parent-2] up
-[parent-2] insertTopDown: null at 3
-[null] down: null
-[parent-3 (nested)] init
-[parent-3 (nested)] reconcile
-[parent-3 (nested)] insertTopDown: null at 0
-[null] down: null
-[child-3-1 (nested)] init
-[child-3-1 (nested)] reconcile
+[parent-2] insertTopDown: parent-3 (nested) at 3
+[parent-3 (nested)] down: parent-3 (nested)
+[parent-3 (nested)] insertTopDown: child-3-1 (nested) at 0
+[child-3-1 (nested)] down: child-3-1 (nested)
 [parent-3 (nested)] up
-[parent-3 (nested)] insertTopDown: null at 1
-[null] down: null
-[child-3-2 (nested)] init
-[child-3-2 (nested)] reconcile
+[parent-3 (nested)] insertTopDown: child-3-2 (nested) at 1
+[child-3-2 (nested)] down: child-3-2 (nested)
 [parent-3 (nested)] up
-[parent-3 (nested)] insertTopDown: null at 2
-[null] down: null
-[child-3-3 (nested)] init
-[child-3-3 (nested)] reconcile
+[parent-3 (nested)] insertTopDown: child-3-3 (nested) at 2
+[child-3-3 (nested)] down: child-3-3 (nested)
 [parent-3 (nested)] up
 [parent-2] up
 [root] up
