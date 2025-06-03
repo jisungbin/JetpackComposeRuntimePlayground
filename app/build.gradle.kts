@@ -1,20 +1,20 @@
 plugins {
-  id("org.jetbrains.kotlin.android") version "2.0.0"
-  id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
-  id("com.android.application") version "8.5.0"
+  id("org.jetbrains.kotlin.android") version "2.1.21"
+  id("org.jetbrains.kotlin.plugin.compose") version "2.1.21"
+  id("com.android.application") version "8.10.1"
 }
 
 android {
   namespace = "land.sungbin.compose.playground"
-  compileSdk = 34
+  compileSdk = 35
 
   defaultConfig {
     minSdk = 30
   }
 
   compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
   }
 
   sourceSets {
